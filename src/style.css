@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  width: 70%;
+  margin: auto;
+}
+
+#root > * {
+  color: black;
+  margin: 1rem;
+  text-align: center;
+  width: 30%;
+}
+
+.title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.author {
+  font-style: italic;
+  padding-bottom: 0.5rem;
+}
