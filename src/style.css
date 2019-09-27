@@ -24,6 +24,16 @@ p {
   width: 30%;
 }
 
+#new-book {
+  width: 100%;
+}
+
+#add-book {
+  margin: 2rem;
+  max-width: 30%;
+  padding: 0.5rem 1rem;
+}
+
 .title {
   font-size: large;
   font-weight: bold;

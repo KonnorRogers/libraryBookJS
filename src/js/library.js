@@ -28,3 +28,8 @@ Library.prototype.render = function(books = this.books) {
 
   div.appendChild(docFrag);
 };
+
+Library.prototype.renderBookForm = function() {
+  const div = document.getElementById('add-book');
+  div.classList.add('hide');
+};
