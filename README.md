@@ -15,7 +15,7 @@ and remove books.
 
 ### [DocumentFragment](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment)
 
-This project uses [Document Fragments]() in order to render pages. A DocumentFragment
+This project uses [Document Fragments](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) in order to render pages. A DocumentFragment
 will aggregate elements in an invisible DOM so it does not trigger a rerender of the page.
 Only when the DocumentFragment is inserted or appended within the visible DOM will the page
 rerender
