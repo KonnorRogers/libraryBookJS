@@ -13,14 +13,14 @@ and remove books.
 
 ## Interesting notes
 
-### [DocumentFragments]()
+### [DocumentFragment](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment)
 
 This project uses [Document Fragments]() in order to render pages. A DocumentFragment
 will aggregate elements in an invisible DOM so it does not trigger a rerender of the page.
 Only when the DocumentFragment is inserted or appended within the visible DOM will the page
 rerender
 
-### [FormData]()
+### [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
 
 Because this project does not have a backend, I had to get creative as to how to
 aggregate data submitted via the Add Book button. The basics of how I use the FormData
