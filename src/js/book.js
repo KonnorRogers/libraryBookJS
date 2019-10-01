@@ -8,7 +8,7 @@ export default function Book(title, author, pages, read = false) {
 }
 
 Book.prototype.hasReadString = function() {
-  if (this.read === true) {
+  if (this.read === true || this.read == 'true') {
     return 'has read';
   }
 

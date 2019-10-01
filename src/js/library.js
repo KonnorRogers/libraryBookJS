@@ -1,3 +1,5 @@
+import Book from './book.js';
+
 export default function Library() {
   this.books = [];
 }
@@ -24,12 +26,13 @@ Library.prototype.render = function(books = this.books) {
 
   this.addBookSubmitListener();
 
-  const root = document.getElementById('root');
+  const root = document.getElementById('books');
   const docFrag = document.createDocumentFragment();
   books.forEach((book, index) => {
     docFrag.appendChild(book.HTMLInfo(index));
   });
 
+  root.innerHTML = '';
   root.appendChild(docFrag);
 };
 
@@ -39,28 +42,33 @@ Library.prototype.addNewBookButtonListener = function(element) {
 
 Library.prototype.addBookSubmitListener = function() {
   const submit = document.getElementById('add-book-form');
-  submit.addEventListener('submit', e => this.handleAddBookSubmit(e));
+  submit.addEventListener('submit', e => this.handleAddBookSubmit(e), true);
 };
 
 Library.prototype.handleAddBookSubmit = function(e) {
+  console.log(this);
+  // Prevents making a GET request
   e.preventDefault();
   const form = document.getElementById('add-book-form');
 
   const formData = new FormData(form);
+
+  let newBook = Object.create(Book.prototype);
 
   // value is an array, data[0] === propertyName
   //                    data[1] === properyValue
   for (const data of formData) {
     const field = data[0];
     const value = data[1];
-    console.log(field);
-    console.log(value);
+
+    newBook[field] = value;
   }
 
-  // // Rerenders the book using the given input
-  // this.render();
-  // // This prevents the form from attempting to submit the data
-  return false;
+  console.log(newBook);
+  this.addBook(newBook);
+  newBook = null;
+  // Rerenders the book using the given input
+  this.render();
 };
 
 Library.prototype.handleNewBookClick = function() {

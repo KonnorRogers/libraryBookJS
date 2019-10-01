@@ -15,11 +15,27 @@
           Title<input type="text" name="title" /><br />
           Author<input type="text" name="author" /> <br />
           Pages<input type="text" name="pages" /> <br />
-          Have you read it?<input type="text" name="has-read" />
-          <!-- <button id="add-book-form-submit">Add book</button> -->
+
+          <div class="radio-buttons">
+            <div>
+              <input
+                type="radio"
+                id="has-read"
+                name="read"
+                value="true"
+                checked
+              />
+              <label for="has-read">Yes, I have read it.</label>
+            </div>
+            <div>
+              <input type="radio" id="has-not-read" name="read" value="false" />
+              <label for="has-not-read">No, I have not read it.</label>
+            </div>
+          </div>
           <input type="submit" value="Add book" id="add-book-button-submit" />
         </form>
       </div>
+      <div id="books"></div>
     </div>
   </body>
   <script type="module" src="index.js"></script>
