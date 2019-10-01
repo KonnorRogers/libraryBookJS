@@ -32,6 +32,7 @@ Library.prototype.render = function(books = this.books) {
     docFrag.appendChild(book.HTMLInfo(index));
   });
 
+  console.log(books);
   root.innerHTML = '';
   root.appendChild(docFrag);
 };
@@ -42,11 +43,28 @@ Library.prototype.addNewBookButtonListener = function(element) {
 
 Library.prototype.addBookSubmitListener = function() {
   const submit = document.getElementById('add-book-form');
-  submit.addEventListener('submit', e => this.handleAddBookSubmit(e), true);
+
+  const handleAddBookSubmit = e => this.handleAddBookSubmit(e);
+
+  // Remove the listener so you do not duplicate listeners
+  // https://medium.com/@DavideRama/removeeventlistener-and-anonymous-functions-ab9dbabd3e7b
+  submit.addEventListener(
+    'submit',
+    function submitListener(e) {
+      handleAddBookSubmit(e);
+
+      // Because the page will rerender, the event listener mut be removed here
+      submit.removeEventListener('submit', submitListener, false);
+    },
+    false,
+  );
+
+  // submit.onsubmit = this.handleAddBookSubmit.bind(this);
 };
 
 Library.prototype.handleAddBookSubmit = function(e) {
-  console.log(this);
+  console.log(e.target);
+
   // Prevents making a GET request
   e.preventDefault();
   const form = document.getElementById('add-book-form');
@@ -64,11 +82,10 @@ Library.prototype.handleAddBookSubmit = function(e) {
     newBook[field] = value;
   }
 
-  console.log(newBook);
   this.addBook(newBook);
-  newBook = null;
   // Rerenders the book using the given input
   this.render();
+  return false;
 };
 
 Library.prototype.handleNewBookClick = function() {
