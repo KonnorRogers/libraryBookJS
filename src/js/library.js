@@ -63,12 +63,34 @@ Library.prototype.addBookSubmitListener = function() {
 };
 
 Library.prototype.handleAddBookSubmit = function(e) {
-  console.log(e.target);
-
   // Prevents making a GET request
   e.preventDefault();
   const form = document.getElementById('add-book-form');
 
+  const newBook = this.readFormData(form);
+
+  if (newBook === null) {
+    this.render();
+    return;
+  }
+
+  this.addBook(newBook);
+  this.formReset(form);
+
+  // Rerenders the book using the given input
+  this.render();
+};
+
+Library.prototype.handleNewBookClick = function() {
+  const addBook = document.getElementById('add-book');
+  addBook.classList.add('hide');
+
+  const bookForm = document.getElementById('add-book-form');
+  bookForm.classList.remove('hide');
+  bookForm.classList.add('book-form-show');
+};
+
+Library.prototype.readFormData = function(form) {
   const formData = new FormData(form);
 
   let newBook = Object.create(Book.prototype);
@@ -79,20 +101,21 @@ Library.prototype.handleAddBookSubmit = function(e) {
     const field = data[0];
     const value = data[1];
 
+    if (value == '') {
+      return null;
+    }
+
     newBook[field] = value;
   }
 
-  this.addBook(newBook);
-  // Rerenders the book using the given input
-  this.render();
-  return false;
+  return newBook;
 };
 
-Library.prototype.handleNewBookClick = function() {
-  const addBook = document.getElementById('add-book');
-  addBook.classList.add('hide');
+Library.prototype.formReset = function(form) {
+  // Reset text values
+  const textValues = [...form].filter(f => f.type === 'text');
+  textValues.forEach(f => (f.value = ''));
 
-  const bookForm = document.getElementById('add-book-form');
-  bookForm.classList.remove('hide');
-  bookForm.classList.add('book-form-show');
+  // Reset to the user has read the book
+  form['has-read'].checked = true;
 };
