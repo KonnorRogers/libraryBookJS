@@ -43,3 +43,25 @@ p {
   font-style: italic;
   padding-bottom: 0.5rem;
 }
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+.book-form-show {
+  display: flex;
+  width: 75%;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.book-form-show > * {
+  width: 100%;
+  margin: 0.25rem auto;
+}
+
+.book-form-show > input {
+}
