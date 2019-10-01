@@ -52,6 +52,8 @@ p {
   width: 90%;
   flex-wrap: wrap;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: auto;
 }
 
@@ -80,7 +82,7 @@ p {
   }
 
   #books > * {
-    width: 30%;
+    width: 42%;
   }
 
   #add-book {
@@ -98,5 +100,11 @@ p {
   }
 
   .book-form-show > input {
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #books > * {
+    width: 28%;
   }
 }
