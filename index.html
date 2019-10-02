@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Library</title>
+  </head>
+  <body>
+    <div id="root">
+      <div id="new-book">
+        <button id="add-book">NEW BOOK</button>
+        <!-- <form class="book-form-show" id="add-book-form"> -->
+        <form class="hide" id="add-book-form" name="addBookForm">
+          Title<input type="text" name="title" /><br />
+          Author<input type="text" name="author" /> <br />
+          Pages<input type="text" name="pages" /> <br />
+
+          <div class="radio-buttons">
+            <div>
+              <input
+                type="radio"
+                id="has-read"
+                name="read"
+                value="true"
+                checked="true"
+              />
+              <label for="has-read">Yes, I have read it.</label>
+            </div>
+            <div>
+              <input type="radio" id="has-not-read" name="read" value="false" />
+              <label for="has-not-read">No, I have not read it.</label>
+            </div>
+          </div>
+          <input type="submit" value="Add book" id="add-book-button-submit" />
+        </form>
+      </div>
+      <div id="books"></div>
+    </div>
+  </body>
+  <script type="module" src="index.js"></script>
+</html>

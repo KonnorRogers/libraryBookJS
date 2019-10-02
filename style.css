@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+#books,
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+#books > * {
+  color: black;
+  margin: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+#new-book {
+  width: 100%;
+  margin: 2rem;
+}
+
+#add-book {
+  margin: 1rem;
+  max-width: 50%;
+  padding: 0.5rem 1rem;
+}
+
+.title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.author {
+  font-style: italic;
+  padding-bottom: 0.5rem;
+}
+
+.book-form-show {
+  display: flex;
+  width: 90%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.book-form-show > * {
+  width: 100%;
+  margin: 0.5rem auto;
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  #books,
+  #root {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 70%;
+  }
+
+  #books {
+    width: 100%;
+  }
+
+  #books > * {
+    width: 42%;
+  }
+
+  #add-book {
+    max-width: 30%;
+  }
+
+  .book-form-show {
+    display: flex;
+    width: 75%;
+    flex-wrap: wrap;
+    margin: auto;
+  }
+
+  .book-form-show > * {
+  }
+
+  .book-form-show > input {
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #books > * {
+    width: 28%;
+  }
+}
