@@ -28,4 +28,4 @@ API is that I add a click listener onto the form button. Within this click liste
 I use the `event.preventDefault()` function to prevent the form from submitting a
 GET request. After this, I then take any data that has been inserted into the form
 fields and use it to add a new book to the library while checking to see that
-the data entered is valid.
+each input contained a valid string.
