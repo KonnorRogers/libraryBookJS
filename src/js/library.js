@@ -173,7 +173,7 @@ Library.prototype.handleBookDelete = function(id) {
 Library.prototype.retrieveLocalStorage = function() {
   try {
     let books = JSON.parse(localStorage.getItem('books'));
-    books = books.map(b => Object.create(Book.prototype, b.values()));
+    books = books.map(b => new Book(b.title, b.author, b.pages, b.read));
     console.log(books);
     return books;
   } catch (e) {
